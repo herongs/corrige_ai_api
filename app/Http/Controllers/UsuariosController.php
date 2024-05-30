@@ -2,18 +2,18 @@
 namespace App\Http\Controllers;
 use App\Actions\Usuarios\CreateUsuarios;
 use App\Actions\Usuarios\UpdateUsuarios;
-use App\Models\Usuario;
+use App\Models\Usuarios;
 use Illuminate\Http\Request;
 class UsuariosController extends Controller
 {
     public function all(Request $request)
     {
-        $Usuarios = Usuario::get();
+        $Usuarios = Usuarios::get();
         return $this->successResponse($Usuarios);
     }
     public function one($id)
     {
-        $Usuarios = Usuario::findOrFail($id);
+        $Usuarios = Usuarios::findOrFail($id);
         return $this->successResponse($Usuarios);
     }
     public function update(Request $request, UpdateUsuarios $updateUsuarios, $id)
